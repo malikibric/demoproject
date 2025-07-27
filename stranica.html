@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>kliknekretnine.com</title>
+  <link rel="stylesheet" href="main.css"> 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+  
+</head>
+<body>
+
+<nav>
+  <div class="logo">🏠 kliknekretnine.com</div>
+  <div class="menu">
+    <a href="stranica.html">Real estate for sale</a>
+    <a href="stranica2.html">Real estate for rent</a>
+    <a href="onama.html">About us</a>
+  </div>
+</nav>
+
+<h2>🗺️ Real estate for sale</h2>
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+<script>
+  const map = L.map('map').setView([43.8563, 18.4131], 13);
+
+  L.tileLayer('https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=0gI3FcumvLK42G5Xga8s', {
+    tileSize: 512,
+    zoomOffset: -1,
+    attribution: '&copy; <a href="https://www.maptiler.com/">MapTiler</a> contributors'
+  }).addTo(map);
+
+  function createPopup(area, price, agency) {
+    return `
+      <div class="popup-title">${area}</div>
+      <div>${price} KM</div>
+      <div class="popup-subtitle">For more: <a href="${agency.link}" target="_blank">${agency.name}</a></div>
+    `;
+  }
+
+  L.marker([43.8563, 18.4131]).addTo(map)
+    .bindPopup(createPopup('100m²', '250.000', {
+      name: 'Nekretnine Plus',
+      link: 'https://olx.ba/artikal/69004499'
+    }))
+    .openPopup();
+
+  L.marker([43.8591, 18.4136]).addTo(map)
+    .bindPopup(createPopup('60m²', '190.000', {
+      name: 'BH Realty',
+      link: 'https://olx.ba/artikal/69004500'
+    }));
+
+  L.marker([43.8478, 18.3884]).addTo(map)
+    .bindPopup(createPopup('72m²', '230.000', {
+      name: 'Sarajevo Dom',
+      link: 'https://olx.ba/artikal/69004501'
+    }));
+
+  L.marker([43.8294, 18.3576]).addTo(map)
+    .bindPopup(createPopup('80m²', '180.000', {
+      name: 'Domus Nekretnine',
+      link: 'https://olx.ba/artikal/69004502'
+    }));
+
+  L.marker([43.8280, 18.3105]).addTo(map)
+    .bindPopup(createPopup('50m²', '135.000', {
+      name: 'Urban Properties',
+      link: 'https://olx.ba/artikal/69004503'
+    }));
+
+  L.marker([43.8549, 18.4232]).addTo(map)
+    .bindPopup(createPopup('45m²', '160.000', {
+      name: 'Elite Nekretnine',
+      link: 'https://olx.ba/artikal/69004504'
+    }));
+
+  L.marker([43.8527, 18.3714]).addTo(map)
+    .bindPopup(createPopup('90m²', '210.000', {
+      name: 'Sarajevo Invest',
+      link: 'https://olx.ba/artikal/69004505'
+    }));
+
+  L.marker([43.8489, 18.3817]).addTo(map)
+    .bindPopup(createPopup('68m²', '175.000', {
+      name: 'Prostor Plus',
+      link: 'https://olx.ba/artikal/69004506'
+    }));
+
+  L.marker([43.8596, 18.4320]).addTo(map)
+    .bindPopup(createPopup('40m²', '200.000', {
+      name: 'Kralj Nekretnina',
+      link: 'https://olx.ba/artikal/69004507'
+    }));
+
+  L.marker([43.8640, 18.4033]).addTo(map)
+    .bindPopup(createPopup('75m²', '250.000', {
+      name: 'City Real Estate',
+      link: 'https://olx.ba/artikal/69004508'
+    }));
+
+  L.marker([43.8460, 18.4127]).addTo(map)
+    .bindPopup(createPopup('85m²', '240.000', {
+      name: 'Vrh Nekretnine',
+      link: 'https://olx.ba/artikal/69004509'
+    }));
+</script>
+<footer>
+  © 2025 kliknekretnine.com (demo project) – All rights reserved.
+</footer>
+
+</body>
+</html>
